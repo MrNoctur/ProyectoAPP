@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- Botón del menú a la izquierda -->
+    </ion-buttons>
+    <ion-title>Eleganza Profunda</ion-title>
+    <ion-buttons slot="end">
+      <ion-button
+        (click)="presentLogoutAlert()"
+        shape="round"
+        color="danger"
+        class="logout-button"
+        ion-ripple-effect
+      >
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-content">
+    <img src="assets/fondo.avif" alt="Home-fondo" class="home-image" />
+  </div>
+  <div class="image-grid">
+    <img src="assets/tf ol.png" alt="Tom ford" class="TF">
+    <img src="assets/y.jfif" alt="You" class="Y">
+    <img src="assets/h.b.jfif" alt="Hugo Boss" class="HB">
+    <img src="assets/rm.webp" alt="Rayo" class="RayoMcQueen">
+  </div>
+</ion-content>

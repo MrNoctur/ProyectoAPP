@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-background">
+    <img src="assets/Logo.png" alt="Fondo">
+  </div>
+  <div class="page-content">
+    <form (ngSubmit)="onRegistro()" #registroForm="ngForm">
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input 
+          [(ngModel)]="username" 
+          name="username" 
+          type="text" 
+          required
+          pattern="[A-Z][A-Za-z]*" 
+          minlength="1" 
+          maxlength="20"
+        ></ion-input>
+        <ion-note color="danger" *ngIf="registroForm.submitted && !isValidUsername()">
+          El nombre de usuario debe comenzar con una mayúscula y no puede tener caracteres especiales.
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input 
+          [(ngModel)]="phoneNumber" 
+          name="phoneNumber" 
+          type="tel" 
+          required 
+          pattern="[0-9]{8}"
+        ></ion-input>
+        <ion-note color="danger" *ngIf="registroForm.submitted && !isValidPhoneNumber()">
+          El número debe tener exactamente 8 dígitos.
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input 
+          [(ngModel)]="password" 
+          name="password" 
+          type="password" 
+          required 
+          maxlength="10"
+        ></ion-input>
+        <ion-note color="danger" *ngIf="registroForm.submitted && !isValidPassword()">
+          La contraseña debe tener un máximo de 10 caracteres.
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Confirmar Contraseña</ion-label>
+        <ion-input 
+          [(ngModel)]="confirmPassword" 
+          name="confirmPassword" 
+          type="password" 
+          required
+        ></ion-input>
+        <ion-note color="danger" *ngIf="registroForm.submitted && confirmPassword !== password">
+          Las contraseñas no coinciden.
+        </ion-note>
+      </ion-item>
+      <ion-button expand="full" type="submit">Registrar</ion-button>
+    </form>
+  </div>
+</ion-content>

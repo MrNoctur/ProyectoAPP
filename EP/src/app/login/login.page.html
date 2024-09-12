@@ -1,0 +1,22 @@
+<ion-content>
+  <div class="page-background">
+    <img src="assets/Logo.png" alt="Fondo" class="login-image">
+  </div>
+  <div class="page-content">
+    <div class="login-title">Eleganza Profunda</div>
+    <form (ngSubmit)="onLogin()">
+      <ion-item>
+        <ion-label position="floating">Usuario/Email</ion-label>
+        <ion-input [(ngModel)]="identifier" name="identifier" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+      </ion-item>
+      <ion-button expand="full" type="submit">Ingresar</ion-button>
+      <ion-item>
+        <ion-label>No tiene cuenta? <a routerLink="/registro">Regístrese aquí</a></ion-label>
+      </ion-item>
+    </form>
+  </div>
+</ion-content>
